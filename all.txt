@@ -1,0 +1,708 @@
+//s htlm file//
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumber Jack</title>
+
+    <link rel="stylesheet" href="css/Game.css" />
+    <link rel="stylesheet" href="css/Loby.css" />
+    <link rel="stylesheet" href="css/style-main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="lobby-Screen" hidden></div>
+
+      <div id="game-Screen">
+        <div id="game-Ui">
+          <div id="g-menu"></div>
+
+          <div id="g-score">score: </div>
+
+          <div id="g-timeBar">
+            <div id="g-timeBar-bg">
+              <div id="g-timeBar-bg-time"></div>
+            </div>
+          </div>
+
+          <div id="g-bestScore">
+            <span>Best Score :</span>
+            <span id="g-bestScoreValue"> </span>
+          </div>
+
+          <div id="g-tokenT">
+            <div></div>
+            <span>0</span>
+          </div>
+
+          <div id="g-scoreFloating" class=""></div>
+        </div>
+
+        <div id="game-Area">
+          <div id="tree-parent">
+            <div id="tree"></div>
+            <div class="jack left" id="jack"></div>
+          </div>
+        </div>
+        <div id="gameOver-box" class="">
+          <div id="endGameScore" class="endGame-score"></div>
+          <div class="endGame-result">
+            <span id="endGameBestScore">Best Score : 0</span>
+            <span
+              >Collected
+              <img src="imge/T-token.png" alt="token-T" />
+              :<span id="endGame-collectedT"></span>
+            </span>
+          </div>
+          <div class="endGame-btn">
+            <div class="endGame-Ico">
+              <svg
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0,0,256,256"
+              >
+                <g
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <g transform="scale(5.33333,5.33333)">
+                    <path
+                      d="M39.5,43h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-9c0,-1.105 -0.895,-2 -2,-2h-4c-1.105,0 -2,0.895 -2,2v9c0,1.381 -1.119,2.5 -2.5,2.5h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-19.087c0,-2.299 1.054,-4.471 2.859,-5.893l14.212,-11.199c0.545,-0.428 1.313,-0.428 1.857,0l14.214,11.199c1.805,1.422 2.858,3.593 2.858,5.891v19.089c0,1.381 -1.119,2.5 -2.5,2.5z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div id="restartGame" class="endGame-Ico">
+              <svg
+                x="0px"
+                y="0px"
+                width="100"
+                height="100"
+                viewBox="0,0,256,256"
+              >
+                <g
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                  stroke="none"
+                  stroke-width="1"
+                  stroke-linecap="butt"
+                  stroke-linejoin="miter"
+                  stroke-miterlimit="10"
+                  stroke-dasharray=""
+                  stroke-dashoffset="0"
+                  font-family="none"
+                  font-weight="none"
+                  font-size="none"
+                  text-anchor="none"
+                  style="mix-blend-mode: normal"
+                >
+                  <g transform="scale(5.33333,5.33333)">
+                    <path
+                      d="M24,4v2.46094c0,1.86 1.28937,3.46867 3.10938,3.88867c6.72,1.53 11.62078,7.91 10.80078,15.25c-0.71,6.41 -5.90055,11.60055 -12.31055,12.31055c-8.43,0.94 -15.59961,-5.66016 -15.59961,-13.91016c0,-0.82 0.0707,-1.63945 0.2207,-2.43945l-5.60156,-2.5c-0.41,1.61 -0.61914,3.26945 -0.61914,4.93945c0,11.39 9.56984,20.5807 21.08984,19.9707c10.08,-0.54 18.34086,-8.80086 18.88086,-18.88086c0.61,-11.52 -8.5807,-21.08984 -19.9707,-21.08984zM13.36328,6.0957l-12.25781,8.12109l14.42383,6.42188z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- js -->
+
+    <!-- tree  -->
+    <script src="js/tree/treePiece.js" defer></script>
+    <script src="js/tree/branch.js" defer></script>
+    <script src="js/tree/tree.js" defer></script>
+
+    <!-- player -->
+    <script src="js/player/player.js" defer></script>
+
+    <!-- game  -->
+     <script src="js/game/T-token.js" defer></script>
+     <script src="js/game/gameOver.js" defer></script>
+     <script src="js/game/pointRating.js" defer></script>
+     <script src="js/game/gameplay.js" defer></script>
+     <script src="js/game/start.js" defer></script>
+  </body>
+</html>
+//e htlm file//
+
+//s js file//
+
+//s js/tree:
+
+//s branch//
+const branchData = id => {
+    const randomType = Math.floor(Math.random() * 3);
+    let type;
+
+    if(randomType === 0) {
+        type = 'left';
+
+    } else if(randomType === 1) {
+        type = 'right';
+
+    } else if(randomType === 2) {
+        type = 'none'
+
+    } else {
+        return
+    }
+    
+    let branchData = {id, type};
+
+    return branchData
+}
+//e branch//
+
+//s treepiece//
+const crateTreePiece = branchData => {
+    const branch = document.createElement('div');
+
+    branch.className = 'trunk';
+    branch.setAttribute('id', branchData.id);
+    branch.innerHTML = `
+        <div class="branch branch-${branchData.type}"></div>
+    `;
+    
+    return branch
+}
+//e treepiece//
+
+//s tree//
+const treeElement = document.getElementById('tree');
+
+let trunckNumID = 0;
+
+const initialize = () => {
+    for(let i = 0; i < 4; i++) {
+        let trunk = crateTreePiece(branchData(i));
+        
+        trunckNumID = i;
+
+        addPiece(trunk);
+    }
+}
+
+const addPiece = piece => {
+    treeElement.prepend(piece);
+}
+
+const removePiece = piece => {
+    piece.remove();
+}
+
+const createPieceAfterChop = () => {
+    addPiece(crateTreePiece(branchData(trunckNumID)));
+} 
+
+const controlTotalPiece = () => {
+    let total = document.querySelectorAll('.trunk').length;
+    let oldPiece = treeElement.firstElementChild;
+
+    if(total >= 5) removePiece(oldPiece);
+}
+
+const getPositionBrunch = () => {
+    let position = '';
+
+    if (treeElement.lastElementChild.lastElementChild.classList.contains('branch-left')) {position = 'left';}
+    else if (treeElement.lastElementChild.lastElementChild.classList.contains('branch-right')) {position = 'right';}
+    else {position = 'none';}
+    
+    return position
+}
+//e tree//
+
+//e js/tree.
+
+//s js/player:
+
+//s player//
+let statusPositionjack;
+
+const setPositionJack = (position) => {
+    const jackPosition = document.getElementById('jack');
+    
+    if(position === 'left'){
+        jackPosition.classList.remove('right');
+        jackPosition.classList.add('left');
+
+    } else if(position === 'right') {
+        jackPosition.classList.remove('left');
+        jackPosition.classList.add('right');
+
+    } else return;
+
+    statusPositionjack = position;
+}
+
+window.addEventListener('keydown', e1 => {
+    if(gameOverStatus) return;
+
+    if(
+        (e1.key === "ArrowRight")
+        ||
+        (e1.key === "d")
+    ) {
+        setPositionJack('right');
+
+    } else if(
+        (e1.key === "ArrowLeft")
+        ||
+        (e1.key === "a")
+    ) {
+        setPositionJack('left');
+
+    } else return;
+});
+//e player//
+
+//e js/player.
+
+// s js/game:
+
+//s gameOver//
+const gameOverBox = document.getElementById('gameOver-box');
+
+let gameOverStatus = false;
+
+const gameOver = () => {
+    if(getPositionBrunch() === statusPositionjack) {
+        gameOverStatus = true;
+
+        scoreEndGameElement.textContent = score;
+
+        gameOverBox.classList.add('active');
+
+        scoreFlyElement.textContent = '';
+        bestScoreEndGameElement.textContent = `Best Score : ${Number(localStorage.getItem('bestScore'))}`
+    }
+}
+//e gameOver//
+
+//s gameplay//
+const keys = ["ArrowRight", "ArrowLeft", "d", "a"];
+
+window.onkeydown = e => {
+    let lastTrunk = treeElement.lastElementChild;
+    
+    if(keys.includes(e.key)){
+        if(gameOverStatus) return;
+        
+        if(lastTrunk) {
+            removePiece(lastTrunk);
+            gameOver();
+            trunckNumID++;
+            createPieceAfterChop();
+            pointRating();
+            tokenRating();
+        }
+    }
+}
+//e gameplay//
+
+//s pointRating//
+const scoreElement = document.getElementById('g-score');
+const scoreFlyElement = document.getElementById('g-scoreFloating');
+const bestScoreElement = document.getElementById('g-bestScoreValue');
+const scoreEndGameElement = document.getElementById('endGameScore');
+const bestScoreEndGameElement = document.getElementById('endGameBestScore');
+
+let bestScoreGame = 0;
+let score = 0;
+let bs = 0;
+
+const pointRating = () => {
+    if(gameOverStatus) return;
+
+    scoreElement.textContent = `Score : ${score}`;
+    scoreFlyElement.textContent = score;
+
+    pop(scoreFlyElement);
+
+    score++;
+
+    if(!(Number(localStorage.getItem('bestScore')))) {
+        localStorage.setItem('bestScore', bs);
+    }
+
+    if(Number(localStorage.getItem('bestScore'))) bs = Number(localStorage.getItem('bestScore'));
+
+    if(score > bs) {
+        bs = score;
+        localStorage.setItem('bestScore', bs);
+    }
+}
+
+const pop = (el) => {
+    el.classList.remove('active');
+    void el.offsetWidth;
+    el.classList.add('active');
+};
+
+const setBestScore = score => {
+    localStorage.setItem('bestScore', score);
+}
+//e pointRating//
+
+//s start//
+const gameStart = () => {
+    treeElement.innerHTML = '';
+    initialize();
+    controlTotalPiece();
+    setFirstPositionJack();
+    gameOverStatus = false;
+    score = 0;
+    collectedTokenInGame = 0;
+    pointRating();
+    setTokenT();
+    bestScoreElement.textContent = Number(localStorage.getItem('bestScore'));
+}
+
+const setFirstPositionJack = () => {
+    let positionBrunch = getPositionBrunch();
+
+    if(positionBrunch === 'left') {setPositionJack('right')}
+    else if(positionBrunch === 'right') {setPositionJack('left')}
+    else {setPositionJack('right')}
+}
+
+const gameRestart = () => {
+    gameOverBox.classList.remove('active');
+    gameStart();
+}
+
+const restartGameBtn = document.getElementById('restartGame');
+
+restartGameBtn.onclick = () => {
+    gameRestart();
+}
+
+gameStart();
+//e start//
+
+//s T-token//
+const tokenTElement = document.getElementById('g-tokenT').lastElementChild;
+const gameOverBoxTokenTElement = document.getElementById('endGame-collectedT');
+
+let tokenT = Number(localStorage.getItem('T')) ||  0;
+let mst = 60;
+let collectedTokenInGame = 0;
+
+const tokenRating = () => {
+    if((score % mst) === 0) {
+        tokenT++;
+        collectedTokenInGame++;
+        mst += 60;
+
+        localStorage.setItem('T', tokenT);
+
+        tokenTElement.textContent = tokenT;
+    }
+
+    gameOverBoxTokenTElement.textContent = collectedTokenInGame;
+}
+
+const setTokenT = () => {
+    let t = Number(localStorage.getItem('T'));
+    
+    tokenTElement.textContent = t;
+}
+//e T-token//
+
+// e js/game.
+
+// s js/time:
+    ...
+// s js/time.
+
+//e js file//
+
+//s css//
+#game-Screen {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../imge/bgGamePlay.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* game ui */
+
+#game-Ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 0.5fr 5fr 0.8fr 0.5fr;
+    padding: 20px;
+    z-index: 3;
+}
+
+#g-menu {
+    width: 40px;
+    height: 40px;
+    background-image: url('../imge/Game-menu.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#g-score {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: default;
+}
+
+#g-timeBar {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 400px;
+    height: 30px;
+    border: 5px solid saddlebrown;
+}
+
+#g-timeBar-bg {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to left, chartreuse, red);
+}
+
+#g-timeBar-bg-time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+}
+
+#g-bestScore {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#g-bestScoreValue {
+    margin-left: 5px;
+} 
+
+#g-tokenT {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#g-tokenT div{
+    width: 40px;
+    height: 40px;
+    background-image: url('../imge/T-token.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#g-tokenT span {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: default;
+}
+
+#g-scoreFloating {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    cursor: default;
+}
+
+@keyframes pop {
+    0%   { transform: translate(-50%, -50%) scale(1); }
+    50%  { transform: translate(-50%, -50%) scale(1.3); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#g-scoreFloating.active {
+    animation: pop 0.3s ease;
+}
+
+/* game  */
+
+#tree-parent {
+    position: relative;
+}
+
+#tree {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.trunk {
+    width: 100px;
+    height: 160px;
+    background-image: url('../imge/Trunky.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.branch {
+    position: absolute;
+    top: 40%;
+    transform: translate(0%, -50%);
+    width: 150px;
+    height: 100px;
+}
+
+.branch-right {
+    left: 90%;
+    background-image: url('../imge/Branch-Right.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.branch-left {
+    right: 100%;
+    background-image: url('../imge/Branch-Left.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#jack {
+    position: absolute;
+    bottom: 0;
+    height: 160px;
+    width: 100px;
+    background-image: url('../imge/Caracter.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jack.right {
+    left: 100%;
+}
+.jack.left {
+    right: 100%;
+}
+
+
+/* game over box  */
+#gameOver-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../imge/bg-gameOver.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 30px;
+    z-index: 4;
+}
+
+#gameOver-box.active {
+    display: flex;
+}
+
+.endGame-score {
+    font-size: 44px;
+    margin: 20px 0; 
+}
+
+.endGame-result {
+    display: flex;
+    justify-content: space-between;
+}
+
+.endGame-result span {
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.endGame-result img {
+    width: 30px;
+    margin-left: 5px;
+}
+
+#endGame-collectedT {
+    margin: 0;
+}
+
+.endGame-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-top: 100px;
+}
+
+.endGame-Ico {
+    padding: 10px;
+    background-color: rgb(14, 107, 14);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.endGame-Ico svg{
+    width: 40px;
+    height: 40px;
+}
+
+.endGame-Ico svg:hover{
+    color: gold;
+}
+//e css//

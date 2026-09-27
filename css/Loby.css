@@ -1,0 +1,88 @@
+#lobby-Screen {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../imge/bgLoby.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lobby-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#l-start {
+    width: 200px;
+    height: 50px;
+    background-image: url(../imge/play-btn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#l-multiplayer {
+    width: 200px;
+    height: 50px;
+    background-image: url(../imge/multiplayer-btn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#l-shop {
+    width: 200px;
+    height: 50px;
+    background-image: url(../imge/shop-btn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#l-option-accont {
+    display: flex;
+    gap: 10px;
+}
+
+#l-accont {
+    width: 140px;
+    height: 40px;
+    background-image: url(../imge/accont-btn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#l-option {
+    width: 140px;
+    height: 40px;
+    background-image: url(../imge/option-btn.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.logo {
+    width: 250px;
+    height: 200px;
+    background-image: url(../imge/logo.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

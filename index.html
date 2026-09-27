@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumber Jack</title>
+
+    <link rel="stylesheet" href="css/Game.css" />
+    <link rel="stylesheet" href="css/Loby.css" />
+    <link rel="stylesheet" href="css/style-main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="lobby-active">
+        <div id="lobby-Screen">
+        <div id="lobby-btn">
+          <div class="logo"></div>
+          <div id="l-start" class="btn"></div>
+          <div id="l-multiplayer" class="btn"></div>
+          <div id="l-shop" class="btn"></div>
+          <div id="l-option-accont">
+            <div id="l-accont" class="btn"></div>
+            <div id="l-option" class="btn"></div>
+          </div>
+        </div>
+
+        <audio id="effectBtn-menu">
+          <source src="audio/effect-menu-hover.mp3">
+        </audio>
+      </div>
+      </div>
+
+      <div id="game-active" hidden>
+        <div id="game-Screen">
+          <div id="game-Ui">
+            <div id="g-menu"></div>
+  
+            <div id="g-score">score: </div>
+  
+            <div id="g-timeBar">
+              <div id="g-timeBar-bg">
+                <div id="g-timeBar-bg-time"></div>
+              </div>
+            </div>
+  
+            <div id="g-bestScore">
+              <span>Best Score :</span>
+              <span id="g-bestScoreValue"> </span>
+            </div>
+  
+            <div id="g-tokenT">
+              <div></div>
+              <span>0</span>
+            </div>
+  
+            <div id="g-scoreFloating" class=""></div>
+          </div>
+  
+          <div id="game-Area">
+            <div id="tree-parent">
+              <div id="tree"></div>
+              <div class="jack left" id="jack"></div>
+            </div>
+          </div>
+          <div id="gameOver-box">
+            <div id="endGameScore" class="endGame-score"></div>
+            <div class="endGame-result">
+              <span id="endGameBestScore">Best Score : 0</span>
+              <span
+                >Collected
+                <img src="imge/T-token.png" alt="token-T" />
+                :<span id="endGame-collectedT"></span>
+              </span>
+            </div>
+            <div class="endGame-btn">
+              <div id="goToLobby" class="endGame-Ico">
+                <svg
+                  x="0px"
+                  y="0px"
+                  width="100"
+                  height="100"
+                  viewBox="0,0,256,256"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(5.33333,5.33333)">
+                      <path
+                        d="M39.5,43h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-9c0,-1.105 -0.895,-2 -2,-2h-4c-1.105,0 -2,0.895 -2,2v9c0,1.381 -1.119,2.5 -2.5,2.5h-9c-1.381,0 -2.5,-1.119 -2.5,-2.5v-19.087c0,-2.299 1.054,-4.471 2.859,-5.893l14.212,-11.199c0.545,-0.428 1.313,-0.428 1.857,0l14.214,11.199c1.805,1.422 2.858,3.593 2.858,5.891v19.089c0,1.381 -1.119,2.5 -2.5,2.5z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div id="restartGame" class="endGame-Ico">
+                <svg
+                  x="0px"
+                  y="0px"
+                  width="100"
+                  height="100"
+                  viewBox="0,0,256,256"
+                >
+                  <g
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(5.33333,5.33333)">
+                      <path
+                        d="M24,4v2.46094c0,1.86 1.28937,3.46867 3.10938,3.88867c6.72,1.53 11.62078,7.91 10.80078,15.25c-0.71,6.41 -5.90055,11.60055 -12.31055,12.31055c-8.43,0.94 -15.59961,-5.66016 -15.59961,-13.91016c0,-0.82 0.0707,-1.63945 0.2207,-2.43945l-5.60156,-2.5c-0.41,1.61 -0.61914,3.26945 -0.61914,4.93945c0,11.39 9.56984,20.5807 21.08984,19.9707c10.08,-0.54 18.34086,-8.80086 18.88086,-18.88086c0.61,-11.52 -8.5807,-21.08984 -19.9707,-21.08984zM13.36328,6.0957l-12.25781,8.12109l14.42383,6.42188z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- js -->
+
+    <!-- tree  -->
+    <script src="js/tree/treePiece.js" defer></script>
+    <script src="js/tree/branch.js" defer></script>
+    <script src="js/tree/tree.js" defer></script>
+
+    <!-- player -->
+    <script src="js/player/player.js" defer></script>
+
+    <!-- game  -->
+    <script src="js/game/T-token.js" defer></script>
+    <script src="js/game/gameOver.js" defer></script>
+    <script src="js/game/pointRating.js" defer></script>
+    <script src="js/game/time.js" defer></script>
+    <script src="js/game/gameplay.js" defer></script>
+    <script src="js/game/start.js" defer></script>
+
+    <!-- main  -->
+     <script src="js/main.js" defer></script>
+  </body>
+</html>
